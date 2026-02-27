@@ -21,11 +21,11 @@ import lombok.NoArgsConstructor;
 public class BuildingEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String canonicalBuildingName;
     private String address;
     private String city;
-    private int numberOfMahcines;
+    private int numberOfMachines;
     
     @OneToMany(mappedBy = "building")
     private List<MachineEntity> machines;

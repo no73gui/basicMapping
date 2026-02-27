@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class MachineEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String canonicalMachineName;
     private String modelNumber;
     private String serialNumber;

@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 public class BuildingEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long buildingId;
     private String canonicalBuildingName;
     private String address;
     private String city;

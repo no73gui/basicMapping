@@ -9,7 +9,6 @@ public interface BuildingMapper {
     BuildingResponse toResponse(BuildingEntity entity);
     
     @Mapping(target = "route", ignore = true)
-    @Mapping(target = "id", ignore = true)
     @Mapping(target = "machines", ignore = true)
     BuildingEntity toEntity(BuildingRequest request);
 }

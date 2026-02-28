@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class BuildingResponse {
 
+        private Long buildingId;
         private String canonicalBuildingName;
         private String address;
         private String city;

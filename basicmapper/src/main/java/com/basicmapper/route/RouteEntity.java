@@ -9,7 +9,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,8 +28,8 @@ public class RouteEntity {
     private List<EmployeeEntity> employees;
 
     // child of building
-    @OneToMany
-    @JoinColumn(name = "route_id") // specify the join column in the building table
+    @OneToMany(mappedBy = "route")
+    // specify the join column in the building table
     private List<BuildingEntity> buildings;
 
 

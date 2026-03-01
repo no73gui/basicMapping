@@ -14,9 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-
-
-
 @RestController
 @RequestMapping("/buildings")
 @RequiredArgsConstructor
@@ -33,6 +30,12 @@ public class BuildingController {
     public List<BuildingResponse> getAllBuildings() {
         return buildingService.getAllBuildings();
     }
+
+    @GetMapping("/route/{routeId}")
+    public ResponseEntity<List<BuildingResponse>> getBuildingsByRoute(@PathVariable Long routeId) {
+        return ResponseEntity.ok(buildingService.getBuildingsByRoute(routeId));
+    }
+    
 
     @PutMapping("/{id}")
     public ResponseEntity<BuildingResponse> updateSingleBuilding(@PathVariable Long id, @RequestBody BuildingRequest entity) {

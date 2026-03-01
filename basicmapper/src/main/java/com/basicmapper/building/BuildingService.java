@@ -24,6 +24,7 @@ public class BuildingService {
 
     public BuildingResponse createBuilding(BuildingRequest request) {
         BuildingEntity entity = buildingMapper.toEntity(request);
+        entity.setRoute(routeRepository.getReferenceById(request.getRouteId()));
         BuildingEntity savedEntity = buildingRepository.save(entity);
         return buildingMapper.toResponse(savedEntity);
     }
@@ -54,6 +55,11 @@ public class BuildingService {
         String targetConName = buildingRepository.getReferenceById(id).getCanonicalBuildingName();
         buildingRepository.deleteById(id);
         return "Building successfully removed from DB : " + targetConName;
+    }
+
+    public List<BuildingResponse> getBuildingsByRoute(Long routeId) {
+        return buildingMapper.toResponseList(buildingRepository.findByRouteId(routeId));
+    
     }
 
 

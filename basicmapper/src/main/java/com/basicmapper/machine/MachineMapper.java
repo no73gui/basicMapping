@@ -8,7 +8,7 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface MachineMapper {
 
-    @Mapping(source = "building.id", target = "buildingId")
+    @Mapping(target = "buildingId", ignore = true)
     MachineResponse toResponse(MachineEntity entity);
 
     List<MachineResponse> toResponseList(List<MachineEntity> entities);
